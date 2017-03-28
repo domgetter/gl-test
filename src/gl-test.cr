@@ -39,13 +39,14 @@ lib LibFreeglut
 
 end
 
-def new_window(title = "", size = {640, 480}, position = {0, 0}, mode = LibFreeglut::GLUT_SINGLE)
-  a = 0
-  b = 0u8
-  p_a = pointerof(a)
-  p_b = Pointer(UInt8).new(b)
+def new_window( title    = "",
+                size     = {640, 480},
+                position = {0, 0},
+                mode     = LibFreeglut::GLUT_SINGLE,
+                argc     = 0,
+                argv     = [""] )
 
-  LibFreeglut.init(p_a, pointerof(p_b))
+  LibFreeglut.init(pointerof(argc), argv.map(&.to_unsafe).to_a)
   LibFreeglut.init_display_mode(mode)
   LibFreeglut.init_window_size(width: size[0], height: size[1])
   LibFreeglut.init_window_position(x: position[0], y: position[1])
