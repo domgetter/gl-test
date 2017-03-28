@@ -1,0 +1,13 @@
+name: gl-test
+version: 0.1.0
+
+authors:
+  - Dominic Muller <nicklink483@gmail.com>
+
+targets:
+  gl-test:
+    main: src/gl-test.cr
+
+crystal: 0.21.1
+
+license: MIT
